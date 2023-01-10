@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="iitblogo">
+    <file>submitbtn.jpg</file>
+    <file>DRDO-logo.png</file>
+    <file>iitblogo.png</file>
+  </qresource>
+  <qresource prefix="drdologo"/>
+</RCC>
