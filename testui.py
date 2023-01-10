@@ -16,9 +16,13 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
         self.showMaximized()
         self.setWindowTitle("Snow Depth Module")
         # Initialization of function for radio button state
-        self.Pirrbtn.toggled.connect(lambda: self.btnstate(self.Pirrbtn))
-        self.Ghrbtn.toggled.connect(lambda: self.btnstate(self.Ghrbtn))
-        self.Kararbtn.toggled.connect(lambda: self.btnstate(self.Kararbtn))
+
+        self.Pirrbtn.clicked.connect(self.pirpanjalFun)
+        self.Ghrbtn.clicked.connect(self.greaterhFun)
+        self.Kararbtn.clicked.connect(self.karakoramFun)
+        # self.Pirrbtn.toggled.connect(lambda: self.btnstate(Pirrbtn))
+        # self.Ghrbtn.toggled.connect(lambda: self.btnstate(self.Ghrbtn))
+        # self.Kararbtn.toggled.connect(lambda: self.btnstate(self.Kararbtn))
         # Initialization of function for pushButton
         self.upload_1.clicked.connect(self.file_Upload1)
         self.upload_2.clicked.connect(self.file_Upload2)
@@ -33,86 +37,105 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
         # self.pushButton_11.clicked.connect(self.file_Upload11)
         # self.pushButton_12.clicked.connect(self.file_Upload12)
 
-    def btnstate(self, b):
-        if b.isChecked():
+    def pirpanjalFun(self):
+        if self.Pirrbtn.isChecked():
             source_ds = ogr.Open(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\merged_himalaya.shp')
             boundFile = gpd.read_file(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\merged_himalaya.shp')
-            print(boundFile.head())
-            
+            print(boundFile)
+            print('pirpanjal get clicked')
 
-            # source_ds = ogr.Open(r"D:\Srinivas\Mayuri\SnowDepth\shpfile\Greater_Himalaya.shp")
-            # boundFile = gpd.read_file(r"\Srinivas\Mayuri\SnowDepth\shpfile\Greater_Himalaya.shp")
+    def greaterhFun(self):
+        if self.Ghrbtn.isChecked():
+            source_ds = ogr.Open(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\merged_himalaya.shp')
+            boundFile = gpd.read_file(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\merged_himalaya.shp')
+            print(boundFile)
+
+            # source_ds = ogr.Open(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\Greater_Himalaya.shp')
+            # boundFile = gpd.read_file(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\Greater_Himalaya.shp')
             # print(boundFile)
-            print(b.text(), "get clicked")
-        if b.isChecked() == "Ghrbtn":
-            print(b.text(), "get clicked")
-        if b.isChecked() == "Kararbtn":
-            print(b.text(), "get clicked")
+            # print('greater himalaya get clicked')
+
+    def karakoramFun(self):
+        if self.Kararbtn.isChecked():
+            source_ds = ogr.Open(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\merged_himalaya.shp')
+            boundFile = gpd.read_file(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\merged_himalaya.shp')
+            print(boundFile)
+            print('korakoram get clicked')
+
+    # def btnstate(self, b):
+
+    # if b.isChecked():
+    #     source_ds = ogr.Open(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\merged_himalaya.shp')
+    #     boundFile = gpd.read_file(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\merged_himalaya.shp')
+    #     print(boundFile.head())
+    #
+    #     # source_ds = ogr.Open(r"D:\Srinivas\Mayuri\SnowDepth\shpfile\Greater_Himalaya.shp")
+    #     # boundFile = gpd.read_file(r"\Srinivas\Mayuri\SnowDepth\shpfile\Greater_Himalaya.shp")
+    #     # print(boundFile)
+    #     print(b.text(), "get clicked")
+    # if b.isChecked():
+    #     print(b.text(), "get clicked")
+    # if b.isChecked():
+    #     print(b.text(), "get clicked")
 
     # QfileDialog used for browsing data take one push button and write function
 
     def file_Upload1(self):
-        # print("button pressed")
-        filename = QFileDialog.getOpenFileNames()
-        path = filename[0]
-        print(path)
-        # filename = QFileDialog.getOpenFileNames(self, 'open file', 'D:\Srinivas\Mayuri\Feb2_2019')
-        # self.lineEdit.setText(filename[0])
-        # self.open_File()
+        filename = QFileDialog.getOpenFileNames(self, 'Image Files (*.tif)')
+        self.lineEdit_1.setText(str(filename[0]))
+        print(filename[0])
 
     def file_Upload2(self):
         # print("button pressed")
-        filename = QFileDialog.getOpenFileNames()
-        path = filename[0]
-        print(path)
+        filename = QFileDialog.getOpenFileNames(self, 'Image Files (*.tif)')
+        self.lineEdit_2.setText(str(filename[0]))
+        print(filename[0])
 
     def file_Upload3(self):
         # print("button pressed")
-        filename = QFileDialog.getOpenFileNames()
-        path = filename[0]
-        print(path)
+        filename = QFileDialog.getOpenFileNames(self, 'Image Files (*.tif)')
+        self.lineEdit_3.setText(str(filename[0]))
+        print(filename[0])
 
     def file_Upload4(self):
         # print("button pressed")
-        filename = QFileDialog.getOpenFileNames()
-        path = filename[0]
-        print(path)
-
+        filename = QFileDialog.getOpenFileNames(self, 'Image Files (*.tif)')
+        self.lineEdit_4.setText(str(filename[0]))
+        print(filename[0])
     def file_Upload5(self):
         # print("button pressed")
-        filename = QFileDialog.getOpenFileNames()
-        path = filename[0]
-        print(path)
+        filename = QFileDialog.getOpenFileNames(self, 'Image Files (*.tif)')
+        self.lineEdit_5.setText(str(filename[0]))
+        print(filename[0])
 
     def file_Upload6(self):
         # print("button pressed")
-        filename = QFileDialog.getOpenFileNames()
-        path = filename[0]
-        print(path)
+        filename = QFileDialog.getOpenFileNames(self, 'Image Files (*.tif)')
+        self.lineEdit_6.setText(str(filename[0]))
+        print(filename[0])
 
     def file_Upload7(self):
         # print("button pressed")
-        filename = QFileDialog.getOpenFileNames()
-        path = filename[0]
-        print(path)
-
+        filename = QFileDialog.getOpenFileNames(self, 'Image Files (*.tif)')
+        self.lineEdit_7.setText(str(filename[0]))
+        print(filename[0])
     def file_Upload8(self):
         # print("button pressed")
-        filename = QFileDialog.getOpenFileNames()
-        path = filename[0]
-        print(path)
+        filename = QFileDialog.getOpenFileNames(self, 'Image Files (*.tif)')
+        self.lineEdit_8.setText(str(filename[0]))
+        print(filename[0])
 
     def file_Upload9(self):
         # print("button pressed")
-        filename = QFileDialog.getOpenFileNames()
-        path = filename[0]
-        print(path)
+        filename = QFileDialog.getOpenFileNames(self, 'Image Files (*.tif)')
+        self.lineEdit_9.setText(str(filename[0]))
+        print(filename[0])
 
     def file_Upload10(self):
         # print("button pressed")
-        filename = QFileDialog.getOpenFileNames()
-        path = filename[0]
-        print(path)
+        filename = QFileDialog.getOpenFileNames(self, 'Image Files (*.tif)')
+        self.lineEdit_10.setText(str(filename[0]))
+        print(filename[0])
 
 
 if __name__ == "__main__":

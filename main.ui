@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1339</width>
-    <height>813</height>
+    <width>1233</width>
+    <height>921</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -73,11 +73,20 @@
             <bold>true</bold>
            </font>
           </property>
+          <property name="mouseTracking">
+           <bool>true</bool>
+          </property>
           <property name="styleSheet">
            <string notr="true">color: rgb(0, 0, 0);</string>
           </property>
           <property name="text">
            <string>Pirpanjal</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
           </property>
          </widget>
         </item>
@@ -138,6 +147,12 @@
           </property>
           <property name="text">
            <string>Karakoram</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
           </property>
          </widget>
         </item>
@@ -283,16 +298,16 @@
          <number>10</number>
         </property>
         <item>
+         <widget class="QLineEdit" name="lineEdit_6"/>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_7"/>
+        </item>
+        <item>
          <widget class="QLineEdit" name="lineEdit_8"/>
         </item>
         <item>
          <widget class="QLineEdit" name="lineEdit_9"/>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_10"/>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_11"/>
         </item>
         <item>
          <widget class="QLineEdit" name="lineEdit_12"/>
@@ -411,7 +426,7 @@
        <property name="geometry">
         <rect>
          <x>700</x>
-         <y>740</y>
+         <y>750</y>
          <width>171</width>
          <height>41</height>
         </rect>
@@ -550,7 +565,7 @@
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>570</x>
@@ -658,7 +673,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>299</x>
@@ -754,7 +769,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>420</x>
@@ -771,21 +786,38 @@
          <number>10</number>
         </property>
         <item>
-         <widget class="QLineEdit" name="lineEdit_4"/>
+         <widget class="QLineEdit" name="lineEdit_1"/>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_6"/>
+         <widget class="QLineEdit" name="lineEdit_2"/>
         </item>
         <item>
          <widget class="QLineEdit" name="lineEdit_3"/>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_5"/>
+         <widget class="QLineEdit" name="lineEdit_4"/>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_7"/>
+         <widget class="QLineEdit" name="lineEdit_5"/>
         </item>
        </layout>
+      </widget>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>510</x>
+         <y>750</y>
+         <width>151</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(76, 175, 80);
+font: 75 14pt &quot;Arial&quot;;</string>
+       </property>
+       <property name="text">
+        <string>PushButton</string>
+       </property>
       </widget>
      </widget>
     </item>
