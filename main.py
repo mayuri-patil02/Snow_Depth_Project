@@ -14,9 +14,18 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1233, 921)
+        MainWindow.resize(1800, 825)
         MainWindow.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
+
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(1)
+        sizePolicy.setVerticalStretch(1)
+
+
+
+        sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
+        self.centralwidget.setSizePolicy(sizePolicy)
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.centralwidget)
         self.horizontalLayout.setObjectName("horizontalLayout")
@@ -411,11 +420,11 @@ class Ui_MainWindow(object):
         self.lineEdit_5 = QtWidgets.QLineEdit(self.layoutWidget2)
         self.lineEdit_5.setObjectName("lineEdit_5")
         self.verticalLayout_3.addWidget(self.lineEdit_5)
-        self.pushButton = QtWidgets.QPushButton(self.frame)
-        self.pushButton.setGeometry(QtCore.QRect(510, 750, 151, 41))
-        self.pushButton.setStyleSheet("background-color: rgb(76, 175, 80);\n"
-"font: 75 14pt \"Arial\";")
-        self.pushButton.setObjectName("pushButton")
+        self.clearbtn = QtWidgets.QPushButton(self.frame)
+        self.clearbtn.setGeometry(QtCore.QRect(510, 750, 151, 41))
+        self.clearbtn.setStyleSheet("background-color: rgb(76, 175, 80);\n"
+"font: 75 16pt \"Arial\";")
+        self.clearbtn.setObjectName("clearbtn")
         self.horizontalLayout.addWidget(self.frame)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -454,5 +463,5 @@ class Ui_MainWindow(object):
         self.label_5.setText(_translate("MainWindow", "Ruggedness"))
         self.label_6.setText(_translate("MainWindow", "SCD"))
         self.label_17.setText(_translate("MainWindow", "BT10H"))
-        self.pushButton.setText(_translate("MainWindow", "PushButton"))
+        self.clearbtn.setText(_translate("MainWindow", "Clear"))
 import Images_rc

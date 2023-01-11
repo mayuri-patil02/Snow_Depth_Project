@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1233</width>
-    <height>921</height>
+    <width>1800</width>
+    <height>825</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,6 +17,12 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
      <widget class="QFrame" name="frame">
@@ -802,7 +808,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="clearbtn">
        <property name="geometry">
         <rect>
          <x>510</x>
@@ -813,10 +819,10 @@
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(76, 175, 80);
-font: 75 14pt &quot;Arial&quot;;</string>
+font: 75 16pt &quot;Arial&quot;;</string>
        </property>
        <property name="text">
-        <string>PushButton</string>
+        <string>Clear</string>
        </property>
       </widget>
      </widget>
