@@ -18,9 +18,11 @@ from main import *
 from osgeo import ogr, gdal
 import geopandas as gpd
 
+
 class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
     def __init__(self):
         super(MyQtApp, self).__init__()
+        self.selected = None
         self.line_edits = []
         self.setupUi(self)
         self.showMaximized()
@@ -67,6 +69,7 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
             boundFile = gpd.read_file(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\PirPanjal.shp')
             print(boundFile)
             print('pirpanjal get clicked')
+            # self.selected_option.clear()
 
     def greaterhFun(self):
         if self.Ghrbtn.isChecked():
@@ -78,6 +81,7 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
             # boundFile = gpd.read_file(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\Greater_Himalaya.shp')
             # print(boundFile)
             print('greater himalaya get clicked')
+            # self.selected_option.clear()
 
     def karakoramFun(self):
         if self.Kararbtn.isChecked():
@@ -85,13 +89,14 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
             boundFile = gpd.read_file(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\Karakoram.shp')
             print(boundFile)
             print('korakoram get clicked')
+            # self.selected_option.clear()
 
     # QfileDialog used for browsing data take one push button and write function
 
     def file_Upload1(self):
-        filename = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
-        self.lineEdit_1.setText(str(filename[0]))
-        print(filename)
+        filename1 = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
+        self.lineEdit_1.setText(str(filename1[0]))
+        print(filename1)
         if self.lineEdit_1.text():
             # print('file uploaded')
             msg = QMessageBox()
@@ -117,9 +122,9 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
 
     def file_Upload2(self):
         # print("button pressed")
-        filename = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
-        self.lineEdit_2.setText(str(filename[0]))
-        print(filename)
+        filename2 = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
+        self.lineEdit_2.setText(str(filename2[0]))
+        print(filename2)
         if self.lineEdit_2.text():
             # print('file uploaded')
             msg = QMessageBox()
@@ -136,11 +141,12 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
             msg.setWindowTitle("Warning")
             msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
             retval = msg.exec_()
+
     def file_Upload3(self):
         # print("button pressed")
-        filename = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
-        self.lineEdit_3.setText(str(filename[0]))
-        print(filename)
+        filename3 = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
+        self.lineEdit_3.setText(str(filename3[0]))
+        print(filename3)
         if self.lineEdit_3.text():
             # print('file uploaded')
             msg = QMessageBox()
@@ -160,9 +166,9 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
 
     def file_Upload4(self):
         # print("button pressed")
-        filename = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
-        self.lineEdit_4.setText(str(filename[0]))
-        print(filename)
+        filename4 = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
+        self.lineEdit_4.setText(str(filename4[0]))
+        print(filename4)
         if self.lineEdit_4.text():
             # print('file uploaded')
             msg = QMessageBox()
@@ -179,11 +185,12 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
             msg.setWindowTitle("Warning")
             msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
             retval = msg.exec_()
+
     def file_Upload5(self):
         # print("button pressed")
-        filename = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
-        self.lineEdit_5.setText(str(filename[0]))
-        print(filename)
+        filename5 = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
+        self.lineEdit_5.setText(str(filename5[0]))
+        print(filename5)
         if self.lineEdit_5.text():
             # print('file uploaded')
             msg = QMessageBox()
@@ -203,9 +210,9 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
 
     def file_Upload6(self):
         # print("button pressed")
-        filename = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
-        self.lineEdit_6.setText(str(filename[0]))
-        print(filename)
+        filename6 = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
+        self.lineEdit_6.setText(str(filename6[0]))
+        print(filename6)
         if self.lineEdit_6.text():
             # print('file uploaded')
             msg = QMessageBox()
@@ -222,11 +229,12 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
             msg.setWindowTitle("Warning")
             msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
             retval = msg.exec_()
+
     def file_Upload7(self):
         # print("button pressed")
-        filename = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
-        self.lineEdit_7.setText(str(filename[0]))
-        print(filename)
+        filename7 = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
+        self.lineEdit_7.setText(str(filename7[0]))
+        print(filename7)
         if self.lineEdit_7.text():
             # print('file uploaded')
             msg = QMessageBox()
@@ -243,11 +251,12 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
             msg.setWindowTitle("Warning")
             msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
             retval = msg.exec_()
+
     def file_Upload8(self):
         # print("button pressed")
-        filename = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
-        self.lineEdit_8.setText(str(filename[0]))
-        print(filename)
+        filename8 = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
+        self.lineEdit_8.setText(str(filename8[0]))
+        print(filename8)
         if self.lineEdit_8.text():
             # print('file uploaded')
             msg = QMessageBox()
@@ -264,11 +273,12 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
             msg.setWindowTitle("Warning")
             msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
             retval = msg.exec_()
+
     def file_Upload9(self):
         # print("button pressed")
-        filename = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
-        self.lineEdit_9.setText(str(filename[0]))
-        print(filename)
+        filename9 = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
+        self.lineEdit_9.setText(str(filename9[0]))
+        print(filename9)
         if self.lineEdit_9.text():
             # print('file uploaded')
             msg = QMessageBox()
@@ -288,9 +298,9 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
 
     def file_Upload10(self):
         # print("button pressed")
-        filename = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
-        self.lineEdit_10.setText(str(filename[0]))
-        print(filename)
+        filename10 = QFileDialog.getOpenFileName(self, 'Open File', '', 'Tif File (*.tif)')
+        self.lineEdit_10.setText(str(filename10[0]))
+        print(filename10)
         if self.lineEdit_10.text():
             # print('file uploaded')
             msg = QMessageBox()
@@ -320,57 +330,71 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
         self.lineEdit_8.clear()
         self.lineEdit_9.clear()
         self.lineEdit_10.clear()
+        self.Pirrbtn.setChecked(False)
+        # print(self.Pirrbtn.text())
+        self.Ghrbtn.setChecked(False)
+        self.Kararbtn.setChecked(False)
+
+
     # Function for submit Button  code to check all files are selected or not
     def submitFun(self,selected):
         # code to check all whether one radio button out of three is selected or not on submit
         self.selected = ""
         if self.Pirrbtn.isChecked():
             selected = "PirPanjal"
+            # self.selected_option.clear()
         elif self.Ghrbtn.isChecked():
             selected = "GreaterHimalaya"
+            # self.selected_option.clear()
         elif self.Kararbtn.isChecked():
             selected = "Karakoram"
+            # self.selected_option.clear()
 
         if selected:
-            print(selected,'is clicked')
-            # Show the selected option
+            pass
+            # self.selected_option.setText('input selcted')
+            # self.selected_option.clear()
+            # print(selected, 'is clicked')
+            # # Show the selected option
             # msg = QMessageBox()
             # msg.setIcon(QMessageBox.Information)
-            # msg.setText(self.selected, "is Selected")
+            # # msg.setText(self.selected, "is Selected")
+            # msg.setText('input is selected')
             # msg.setWindowTitle("Info")
             # msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
             # retval = msg.exec_()
 
-
-
         else:
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText('Please Select any of the radio button')
-            msg.setWindowTitle("Warning")
-            msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
-            retval = msg.exec_()
-            # Show the message if no option is selected
+            pass
             # self.selected_option.setText("Please select an option")
+            # self.selected_option.clear()
+            # msg = QMessageBox()
+            # msg.setIcon(QMessageBox.Information)
+            # # msg.setText('Please Select valid input')
+            # msg.setWindowTitle("Warning")
+            # msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+            # retval = msg.exec_()
+        # # Show the message if no option is selected
 
-        # code to check all files are selected or not
-        if self.lineEdit_1.text() and self.lineEdit_2.text() and self.lineEdit_3.text() and self.lineEdit_4.text() and self.lineEdit_5.text() and self.lineEdit_6.text() and self.lineEdit_7.text() and self.lineEdit_8.text() and self.lineEdit_9.text() and self.lineEdit_10.text():
-            print('all files uploaded succesfully')
+        #
+        # # code to check all files are uploaded and one among three radio button selected or not
+        if self.lineEdit_1.text() and self.lineEdit_2.text() and self.lineEdit_3.text() and self.lineEdit_4.text() and self.lineEdit_5.text() and self.lineEdit_6.text() and self.lineEdit_7.text() and self.lineEdit_8.text() and self.lineEdit_9.text() and self.lineEdit_10.text() and selected:
+            print('process to output')
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Information)
-            msg.setText("all files uploaded succesfully")
+            msg.setText("you are ready to process output")
             msg.setWindowTitle("Success")
             msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
             retval = msg.exec_()
 
         else:
-            print('Please select all files, input can not be empty')
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Warning)
-            msg.setText("Please Select file to Upload,Inputs can not be empty")
+            msg.setText("Please select input and upload all files related to input")
             msg.setWindowTitle("Warning")
-            msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+            msg.setStandardButtons(QMessageBox.Ok)
             retval = msg.exec_()
+
 
 
 
@@ -378,5 +402,4 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     qt_app = MyQtApp()
     qt_app.show()
-
     sys.exit(app.exec_())

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1748</width>
-    <height>911</height>
+    <width>1416</width>
+    <height>752</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -463,6 +463,30 @@
         </item>
        </layout>
       </widget>
+      <widget class="QPushButton" name="submitbtn">
+       <property name="geometry">
+        <rect>
+         <x>700</x>
+         <y>750</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+         <pointsize>16</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(76, 175, 80);</string>
+       </property>
+       <property name="text">
+        <string>Submit</string>
+       </property>
+      </widget>
       <widget class="QLabel" name="iitbimg">
        <property name="enabled">
         <bool>true</bool>
@@ -695,7 +719,7 @@
         <rect>
          <x>299</x>
          <y>320</y>
-         <width>111</width>
+         <width>120</width>
          <height>401</height>
         </rect>
        </property>
@@ -854,71 +878,31 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QPushButton" name="clearbtn">
        <property name="geometry">
         <rect>
-         <x>600</x>
-         <y>740</y>
-         <width>162</width>
-         <height>34</height>
+         <x>510</x>
+         <y>750</y>
+         <width>151</width>
+         <height>41</height>
         </rect>
        </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QPushButton" name="clearbtn">
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(76, 175, 80);
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(76, 175, 80);
 font: 75 16pt &quot;Arial&quot;;</string>
-          </property>
-          <property name="text">
-           <string>Clear</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="submitbtn">
-          <property name="font">
-           <font>
-            <family>Arial</family>
-            <pointsize>16</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(76, 175, 80);</string>
-          </property>
-          <property name="text">
-           <string>Submit</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+       </property>
+       <property name="text">
+        <string>Clear</string>
+       </property>
       </widget>
      </widget>
     </item>
    </layout>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
   <include location="Images.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>clearbtn</sender>
-   <signal>clicked()</signal>
-   <receiver>Pirrbtn</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>647</x>
-     <y>765</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>529</x>
-     <y>235</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
