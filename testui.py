@@ -22,18 +22,20 @@ import geopandas as gpd
 class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
     def __init__(self):
         super(MyQtApp, self).__init__()
-        self.selected = None
-        self.line_edits = []
+        # self.selected = None
+        # self.line_edits = []
         self.setupUi(self)
         self.showMaximized()
         self.setWindowTitle("Snow Depth Module")
-        msg = QMessageBox()
-        # PySide2.QtWidgets.QLineEdit.setValidator(arg__1)
 
         # Initialization of function for radio button state
         self.Pirrbtn.clicked.connect(self.pirpanjalFun)
         self.Ghrbtn.clicked.connect(self.greaterhFun)
         self.Kararbtn.clicked.connect(self.karakoramFun)
+
+        # self.Pirrbtn.toggled.connect(lambda: self.select_radio(self.Pirrbtn))
+        # self.Ghrbtn.toggled.connect(lambda: self.select_radio(self.Ghrbtn))
+        # self.Kararbtn.toggled.connect(lambda :self.select_radio(self.Kararbtn))
 
         # Initialization of function for Upload Button
         self.upload_1.clicked.connect(self.file_Upload1)
@@ -46,50 +48,56 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
         self.upload_8.clicked.connect(self.file_Upload8)
         self.upload_9.clicked.connect(self.file_Upload9)
         self.upload_10.clicked.connect(self.file_Upload10)
-
-        # function for clearing the text in lineedit
-
-        # self.lineedit.clicked.connect(self.lineedit.clear)
-        self.clearbtn.clicked.connect(self.clearText)
         # self.pushButton_11.clicked.connect(self.file_Upload11)
         # self.pushButton_12.clicked.connect(self.file_Upload12)
 
+        # function for clearing the text in lineedit
+        self.clearbtn.clicked.connect(self.clearText)
+
         # Initialization of function to perform action on Submit button
         self.submitbtn.clicked.connect(self.submitFun)
-        # self.selected_option = QtWidgets.QLabel("", self)
-        # self.selected_option.move(10, 170)
-        # # files = ["file1.tif", "file2.tif", "file3.tif"]
-        # for i in range(11):
-        #     line_edit = QtWidgets.QLineEdit(self)
-        #     self.line_edits.append(line_edit)
+
+    # End of Init()
+
+    # def select_radio(self, b):
+    #     if b.isChecked():
+    #         if b.text() == 'Pirrbtn':
+    #            print('in pir function')
+    #         if b.text() == 'Ghrbtn':
+    #            print('in gh function')
+    #         if b.text() == 'Kararbtn':
+    #            print('in kara function')
 
     def pirpanjalFun(self):
+
+        # self.clearbtn.setEnabled(True)
         if self.Pirrbtn.isChecked():
-            source_ds = ogr.Open(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\PirPanjal.shp')
-            boundFile = gpd.read_file(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\PirPanjal.shp')
-            print(boundFile)
+            # source_ds = ogr.Open(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\PirPanjal.shp')
+            # boundFile = gpd.read_file(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\PirPanjal.shp')
+            # print(boundFile)
             print('pirpanjal get clicked')
-            # self.selected_option.clear()
+            # self.Ghrbtn.setChecked(False)
+            # self.Kararbtn.setChecked(False)
 
     def greaterhFun(self):
+        # self.clearbtn.setEnabled(True)
         if self.Ghrbtn.isChecked():
-            source_ds = ogr.Open(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\GreaterHimalaya.shp')
-            boundFile = gpd.read_file(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\GreaterHimalaya.shp')
-            print(boundFile)
-
-            # source_ds = ogr.Open(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\Greater_Himalaya.shp')
-            # boundFile = gpd.read_file(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\Greater_Himalaya.shp')
+            # source_ds = ogr.Open(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\GreaterHimalaya.shp')
+            # boundFile = gpd.read_file(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\GreaterHimalaya.shp')
             # print(boundFile)
             print('greater himalaya get clicked')
-            # self.selected_option.clear()
+            # self.Kararbtn.setChecked(False)
+            # self.Pirrbtn.setChecked(False)
 
     def karakoramFun(self):
+        # self.clearbtn.setEnabled(True)
         if self.Kararbtn.isChecked():
-            source_ds = ogr.Open(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\Karakoram.shp')
-            boundFile = gpd.read_file(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\Karakoram.shp')
-            print(boundFile)
+            # source_ds = ogr.Open(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\Karakoram.shp')
+            # boundFile = gpd.read_file(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\Karakoram.shp')
+            # print(boundFile)
             print('korakoram get clicked')
-            # self.selected_option.clear()
+            # self.Pirrbtn.setChecked(False)
+            # self.Ghrbtn.setChecked(False)
 
     # QfileDialog used for browsing data take one push button and write function
 
@@ -113,12 +121,6 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
             msg.setWindowTitle("Warning")
             msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
             retval = msg.exec_()
-        # do something if the line edit is empty.
-
-        # filename = QFileDialog.getOpenFileNames(self, 'Image Files (*.tif)')
-
-        # self.lineEdit_1.setText(str(filename[0]))
-        # print(filename[0])
 
     def file_Upload2(self):
         # print("button pressed")
@@ -318,8 +320,20 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
             msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
             retval = msg.exec_()
 
-    # function clearText for clear button
+    # function clearText and clear radio button selection on clear button
     def clearText(self):
+        self.Pirrbtn.setChecked(False)
+        self.Ghrbtn.setChecked(False)
+        self.Kararbtn.setChecked(False)
+
+        # if self.Pirrbtn.isChecked():
+        #     self.Pirrbtn.setChecked(False)
+        # # self.Pirrbtn.setAutoExclusive(False)
+        # if self.Ghrbtn.isChecked():
+        #     self.Ghrbtn.setChecked(False)
+        # # self.Ghrbtn.setAutoExclusive(False)
+        # if self.Kararbtn.isChecked():
+        #     self.Kararbtn.setChecked(False)
         self.lineEdit_1.clear()
         self.lineEdit_2.clear()
         self.lineEdit_3.clear()
@@ -330,72 +344,105 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
         self.lineEdit_8.clear()
         self.lineEdit_9.clear()
         self.lineEdit_10.clear()
-        self.Pirrbtn.setChecked(False)
-        # print(self.Pirrbtn.text())
-        self.Ghrbtn.setChecked(False)
-        self.Kararbtn.setChecked(False)
 
+        # self.Kararbtn.setAutoExclusive(False)
+        # self.clearbtn.setEnabled(False)
+
+        # setAutoExclusive :To clear the radio button and set checked false for new selection
+
+        # self.Kararbtn.setAutoExclusive(False)
 
     # Function for submit Button  code to check all files are selected or not
-    def submitFun(self,selected):
+    def submitFun(self):
         # code to check all whether one radio button out of three is selected or not on submit
-        self.selected = ""
-        if self.Pirrbtn.isChecked():
-            selected = "PirPanjal"
-            # self.selected_option.clear()
-        elif self.Ghrbtn.isChecked():
-            selected = "GreaterHimalaya"
-            # self.selected_option.clear()
-        elif self.Kararbtn.isChecked():
-            selected = "Karakoram"
-            # self.selected_option.clear()
+        # self.selected = ""
+        # if self.Pirrbtn.isChecked():
+        #     selected = "PirPanjal"
+        #     # self.selected_option.clear()
+        # elif self.Ghrbtn.isChecked():
+        #     selected = "GreaterHimalaya"
+        #     # self.selected_option.clear()
+        # elif self.Kararbtn.isChecked():
+        #     selected = "Karakoram"
+        #     # self.selected_option.clear()
 
-        if selected:
-            pass
-            # self.selected_option.setText('input selcted')
-            # self.selected_option.clear()
-            # print(selected, 'is clicked')
-            # # Show the selected option
-            # msg = QMessageBox()
-            # msg.setIcon(QMessageBox.Information)
-            # # msg.setText(self.selected, "is Selected")
-            # msg.setText('input is selected')
-            # msg.setWindowTitle("Info")
-            # msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
-            # retval = msg.exec_()
+        # if selected:
+        #     pass
+        # self.selected_option.setText('input selcted')
+        # self.selected_option.clear()
+        # print(selected, 'is clicked')
+        # # Show the selected option
+        # msg = QMessageBox()
+        # msg.setIcon(QMessageBox.Information)
+        # # msg.setText(self.selected, "is Selected")
+        # msg.setText('input is selected')
+        # msg.setWindowTitle("Info")
+        # msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+        # retval = msg.exec_()
 
-        else:
-            pass
-            # self.selected_option.setText("Please select an option")
-            # self.selected_option.clear()
-            # msg = QMessageBox()
-            # msg.setIcon(QMessageBox.Information)
-            # # msg.setText('Please Select valid input')
-            # msg.setWindowTitle("Warning")
-            # msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
-            # retval = msg.exec_()
+        # else:
+        #     pass
+        # self.selected_option.setText("Please select an option")
+        # self.selected_option.clear()
+        # msg = QMessageBox()
+        # msg.setIcon(QMessageBox.Information)
+        # # msg.setText('Please Select valid input')
+        # msg.setWindowTitle("Warning")
+        # msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+        # retval = msg.exec_()
         # # Show the message if no option is selected
 
         #
         # # code to check all files are uploaded and one among three radio button selected or not
-        if self.lineEdit_1.text() and self.lineEdit_2.text() and self.lineEdit_3.text() and self.lineEdit_4.text() and self.lineEdit_5.text() and self.lineEdit_6.text() and self.lineEdit_7.text() and self.lineEdit_8.text() and self.lineEdit_9.text() and self.lineEdit_10.text() and selected:
-            print('process to output')
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText("you are ready to process output")
-            msg.setWindowTitle("Success")
-            msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
-            retval = msg.exec_()
+        # if self.lineEdit_1.text() and self.lineEdit_2.text() and self.lineEdit_3.text() and self.lineEdit_4.text() and self.lineEdit_5.text() and self.lineEdit_6.text() and self.lineEdit_7.text() and self.lineEdit_8.text() and self.lineEdit_9.text() and self.lineEdit_10.text() and self.Pirrbtn.isChecked() and self.Ghrbtn.isChecked() and self.Kararbtn.isChecked():
+        # if self.lineEdit_1.text() and self.lineEdit_2.text() and self.lineEdit_3.text() and self.lineEdit_4.text() and self.lineEdit_5.text() and self.lineEdit_6.text() and self.lineEdit_7.text() and self.lineEdit_8.text() and self.lineEdit_9.text() and self.lineEdit_10.text():
+        #
+        #     # print('process to output')
+        #     msg = QMessageBox()
+        #     msg.setIcon(QMessageBox.Information)
+        #     msg.setText("you are ready to process output")
+        #     msg.setWindowTitle("Success")
+        #     msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+        #     retval = msg.exec_()
+        #
+        # else:
+        #     msg = QMessageBox()
+        #     msg.setIcon(QMessageBox.Warning)
+        #     msg.setText("Please select input and upload all files related to input")
+        #     msg.setWindowTitle("Warning")
+        #     msg.setStandardButtons(QMessageBox.Ok)
+        #     retval = msg.exec_()
+        #
+        # def submitFun(self):
+        line_edits = [self.lineEdit_1, self.lineEdit_2, self.lineEdit_3, self.lineEdit_4, self.lineEdit_5,
+                      self.lineEdit_6, self.lineEdit_7, self.lineEdit_8, self.lineEdit_9, self.lineEdit_10]
 
+        # Check if all line edit widgets have text entered
+        if all(line_edit.text() for line_edit in line_edits):
+
+            # Check if only one radio button is selected
+            selected_count = sum([self.Pirrbtn.isChecked(), self.Ghrbtn.isChecked(), self.Kararbtn.isChecked()])
+            if selected_count == 1:
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Information)
+                msg.setText("you are ready to process output")
+                msg.setWindowTitle("Success")
+                msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+                retval = msg.exec_()
+            else:
+                msg = QMessageBox()
+                msg.setIcon(QMessageBox.Warning)
+                msg.setText("Please select only one input")
+                msg.setWindowTitle("Warning")
+                msg.setStandardButtons(QMessageBox.Ok)
+                retval = msg.exec_()
         else:
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Warning)
-            msg.setText("Please select input and upload all files related to input")
+            msg.setText("Please fill in all the fields")
             msg.setWindowTitle("Warning")
             msg.setStandardButtons(QMessageBox.Ok)
             retval = msg.exec_()
-
-
 
 
 if __name__ == "__main__":
