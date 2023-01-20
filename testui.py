@@ -58,16 +58,6 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
         self.submitbtn.clicked.connect(self.submitFun)
 
     # End of Init()
-
-    # def select_radio(self, b):
-    #     if b.isChecked():
-    #         if b.text() == 'Pirrbtn':
-    #            print('in pir function')
-    #         if b.text() == 'Ghrbtn':
-    #            print('in gh function')
-    #         if b.text() == 'Kararbtn':
-    #            print('in kara function')
-
     def pirpanjalFun(self):
 
         # self.clearbtn.setEnabled(True)
@@ -322,18 +312,18 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
 
     # function clearText and clear radio button selection on clear button
     def clearText(self):
+        self.Pirrbtn.setAutoExclusive(False)
+        self.Ghrbtn.setAutoExclusive(False)
+        self.Kararbtn.setAutoExclusive(False)
+
         self.Pirrbtn.setChecked(False)
         self.Ghrbtn.setChecked(False)
         self.Kararbtn.setChecked(False)
 
-        # if self.Pirrbtn.isChecked():
-        #     self.Pirrbtn.setChecked(False)
-        # # self.Pirrbtn.setAutoExclusive(False)
-        # if self.Ghrbtn.isChecked():
-        #     self.Ghrbtn.setChecked(False)
-        # # self.Ghrbtn.setAutoExclusive(False)
-        # if self.Kararbtn.isChecked():
-        #     self.Kararbtn.setChecked(False)
+        self.Pirrbtn.setAutoExclusive(True)
+        self.Ghrbtn.setAutoExclusive(True)
+        self.Kararbtn.setAutoExclusive(True)
+
         self.lineEdit_1.clear()
         self.lineEdit_2.clear()
         self.lineEdit_3.clear()
@@ -345,75 +335,8 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
         self.lineEdit_9.clear()
         self.lineEdit_10.clear()
 
-        # self.Kararbtn.setAutoExclusive(False)
-        # self.clearbtn.setEnabled(False)
-
-        # setAutoExclusive :To clear the radio button and set checked false for new selection
-
-        # self.Kararbtn.setAutoExclusive(False)
-
     # Function for submit Button  code to check all files are selected or not
     def submitFun(self):
-        # code to check all whether one radio button out of three is selected or not on submit
-        # self.selected = ""
-        # if self.Pirrbtn.isChecked():
-        #     selected = "PirPanjal"
-        #     # self.selected_option.clear()
-        # elif self.Ghrbtn.isChecked():
-        #     selected = "GreaterHimalaya"
-        #     # self.selected_option.clear()
-        # elif self.Kararbtn.isChecked():
-        #     selected = "Karakoram"
-        #     # self.selected_option.clear()
-
-        # if selected:
-        #     pass
-        # self.selected_option.setText('input selcted')
-        # self.selected_option.clear()
-        # print(selected, 'is clicked')
-        # # Show the selected option
-        # msg = QMessageBox()
-        # msg.setIcon(QMessageBox.Information)
-        # # msg.setText(self.selected, "is Selected")
-        # msg.setText('input is selected')
-        # msg.setWindowTitle("Info")
-        # msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
-        # retval = msg.exec_()
-
-        # else:
-        #     pass
-        # self.selected_option.setText("Please select an option")
-        # self.selected_option.clear()
-        # msg = QMessageBox()
-        # msg.setIcon(QMessageBox.Information)
-        # # msg.setText('Please Select valid input')
-        # msg.setWindowTitle("Warning")
-        # msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
-        # retval = msg.exec_()
-        # # Show the message if no option is selected
-
-        #
-        # # code to check all files are uploaded and one among three radio button selected or not
-        # if self.lineEdit_1.text() and self.lineEdit_2.text() and self.lineEdit_3.text() and self.lineEdit_4.text() and self.lineEdit_5.text() and self.lineEdit_6.text() and self.lineEdit_7.text() and self.lineEdit_8.text() and self.lineEdit_9.text() and self.lineEdit_10.text() and self.Pirrbtn.isChecked() and self.Ghrbtn.isChecked() and self.Kararbtn.isChecked():
-        # if self.lineEdit_1.text() and self.lineEdit_2.text() and self.lineEdit_3.text() and self.lineEdit_4.text() and self.lineEdit_5.text() and self.lineEdit_6.text() and self.lineEdit_7.text() and self.lineEdit_8.text() and self.lineEdit_9.text() and self.lineEdit_10.text():
-        #
-        #     # print('process to output')
-        #     msg = QMessageBox()
-        #     msg.setIcon(QMessageBox.Information)
-        #     msg.setText("you are ready to process output")
-        #     msg.setWindowTitle("Success")
-        #     msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
-        #     retval = msg.exec_()
-        #
-        # else:
-        #     msg = QMessageBox()
-        #     msg.setIcon(QMessageBox.Warning)
-        #     msg.setText("Please select input and upload all files related to input")
-        #     msg.setWindowTitle("Warning")
-        #     msg.setStandardButtons(QMessageBox.Ok)
-        #     retval = msg.exec_()
-        #
-        # def submitFun(self):
         line_edits = [self.lineEdit_1, self.lineEdit_2, self.lineEdit_3, self.lineEdit_4, self.lineEdit_5,
                       self.lineEdit_6, self.lineEdit_7, self.lineEdit_8, self.lineEdit_9, self.lineEdit_10]
 
@@ -432,14 +355,14 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
             else:
                 msg = QMessageBox()
                 msg.setIcon(QMessageBox.Warning)
-                msg.setText("Please select only one input")
+                msg.setText("Please select Only One Input Out of Three ")
                 msg.setWindowTitle("Warning")
                 msg.setStandardButtons(QMessageBox.Ok)
                 retval = msg.exec_()
         else:
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Warning)
-            msg.setText("Please fill in all the fields")
+            msg.setText("Please Upload all Input Files")
             msg.setWindowTitle("Warning")
             msg.setStandardButtons(QMessageBox.Ok)
             retval = msg.exec_()

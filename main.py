@@ -44,7 +44,6 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.Kararbtn.setFont(font)
-
         self.Kararbtn.setObjectName("Kararbtn")
         self.Ghrbtn = QtWidgets.QRadioButton(self.mainframe)
         self.Ghrbtn.setGeometry(QtCore.QRect(339, 28, 201, 31))
@@ -54,7 +53,6 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.Ghrbtn.setFont(font)
-
         self.Ghrbtn.setObjectName("Ghrbtn")
         self.Pirrbtn = QtWidgets.QRadioButton(self.mainframe)
         self.Pirrbtn.setGeometry(QtCore.QRect(10, 28, 171, 41))
@@ -64,7 +62,6 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.Pirrbtn.setFont(font)
-
         self.Pirrbtn.setObjectName("Pirrbtn")
         self.label_4 = QtWidgets.QLabel(self.frame)
         self.label_4.setGeometry(QtCore.QRect(700, 260, 181, 50))
