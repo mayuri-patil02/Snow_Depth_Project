@@ -1,5 +1,7 @@
 import os
 import sys
+
+import pyproj
 from PyQt5.QtWidgets import QFileDialog, QMessageBox
 from PySide2 import QtWidgets
 from PyQt5.QtCore import QObject, pyqtSignal
@@ -9,6 +11,28 @@ import main
 from main import *
 from osgeo import ogr, gdal
 import geopandas as gpd
+from osgeo import gdal, ogr
+import numpy as np
+import matplotlib.pyplot as plt
+import os
+import sys
+import pandas as pd
+import geopandas as gpd
+from shapely.geometry import Polygon
+import pygeos
+# geopandas.options.use_pygeos = True
+import rasterio
+
+from shapely.geometry import Point
+from rasterio import plot
+import pandas as pd
+import scipy.stats
+from sklearn.metrics import r2_score
+from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_absolute_error
+import scipy.stats as stats
+import xarray as xr
+import rioxarray as rio
 
 
 class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
@@ -55,6 +79,30 @@ class MyQtApp(main.Ui_MainWindow, QtWidgets.QMainWindow):
                 boundFile = gpd.read_file(r'D:\Srinivas\Mayuri\SnowDepth\shpfile\PirPanjal.shp')
                 print(boundFile)
                 print('pirpanjal get clicked')
+                bound_project = boundFile.to_crs({'init': 'EPSG:4326'})
+                # bound_project = boundFile.to_crs({'EPSG:4326'})
+                spacing = 0.005
+                xmin, ymin, xmax, ymax = bound_project.total_bounds
+                xcoords = [i for i in np.arange(xmin, xmax, spacing)]
+                ycoords = [i for i in np.arange(ymin, ymax, spacing)]
+                print(bound_project.crs)
+                print(bound_project.total_bounds)
+                # pointcoords = np.array(np.meshgrid(xcoords, ycoords)).T.reshape(-1,
+                #                                                                 2)  # A 2D array like [[x1,y1], [x1,y2], ...
+                # points = gpd.points_from_xy(x=pointcoords[:, 0], y=pointcoords[:, 1])
+                # grid = gpd.GeoSeries(points, crs=bound_project.crs)
+                # grid.name = 'geometry'
+                # gridinside = gpd.sjoin(gpd.GeoDataFrame(grid), bound_project[['geometry']], how="inner")
+                # import matplotlib.pyplot as plt
+                # fig, ax = plt.subplots(figsize=(15, 15))
+                # bound_project.plot(ax=ax, alpha=0.7, color="pink", edgecolor='red', linewidth=1)
+                # # grid.plot(ax=ax, markersize=150, color="blue")
+                # df = pd.DataFrame()
+                # df['LONGITUDE'] = gridinside['geometry'].x
+                # df['LATITUDE'] = gridinside['geometry'].y
+                # coord_list = [(x, y) for x, y in zip(gridinside['geometry'].x, gridinside['geometry'].y)]
+                # gridinside.plot(ax=ax, markersize=10, color="yellow")
+                # # print(gridinside.plot)
 
             except Exception as e:
                 QMessageBox.warning(self, "Error", "An error occurred while trying to open the shapefile: {}".format(e))
